@@ -27,10 +27,37 @@
 <body>
 	<h1>pwa</h1>
 	<span><b class="page-status">online</b></span> <br/>
-	<a href="intent://addshortcut?url=https://antika77.github.io&amp;icon=https://antika77.github.io/images/icon-512x512.png&amp;title=PWA-TEST&amp;version=7#Intent;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;end"
+	<!-- <a href="intent://addshortcut?url=https://antika77.github.io&amp;icon=https://antika77.github.io/images/icon-512x512.png&amp;title=PWA-TEST&amp;version=7#Intent;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;end"
 		onclick="nclk(this,'fot.shorcut','','',event);">Android</a>
 	<script src="/js/pwa.js"></script>
-	<script src="/js/status.js"></script>
+	<script src="/js/status.js"></script> -->
+	
+	<script src="/js/sw.js"></script>
+	
+	<script>
+		window.addEventListener("beforeinstallprompt", (ev) => {
+			   if (isStandalone()) {
+				   // PWA already installed.
+				   event.preventDefault();
+				   return false;
+			   } else {
+				   // PWA not installed.
+			   }
+		});
+
+		function isStandalone() {
+			   // Check if device supports service workers
+			   if (!('serviceWorker' in window.navigator)) return false;
+
+			   // Check for Android
+			   if (window.matchMedia('(display-mode: standalone)').matches) return true;
+
+			   // Check for iOS
+			   if (window.navigator["standalone"] == true) return true;
+
+			   return false;
+		}
+	</script>
 </body>
 
 
