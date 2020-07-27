@@ -6,7 +6,7 @@ const toCache = [
 	'/js/pwa.js',
 	'/js/status.js',
 	'/images/icons/icon-152x152.png',
-	'/images/icons/icon-57x57.png',
+	'/images/icons/icon-72x72.png',
 	'/images/h1_logo.png'
 ];
 
