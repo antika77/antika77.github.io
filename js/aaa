@@ -1,0 +1,100 @@
+keytool -genkey -alias tomcatSSL -keyalg RSA -keysize 1024 -keystore C:\Develop\keystore\tomcatSSLkey.keystore
+
+
+keytool -genkey -alias tomcat -keyalg RSA -keystore C:\Develop\keystore\tomcat.keystore
+
+
+
+
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
+
+openssl 
+
+출처: https://dreamlog.tistory.com/375 [꿈꾸는 사람.]
+
+
+
+genrsa -des3 -out ./test/private.pem 2048
+
+genrsa -out ./test/private.key 2048
+
+rsa -in ./test/private.key -pubout -out ./test/public.key
+
+req -new -key ./test/private.key -config ./openssl.cnf -out ./test/private.csr
+
+//req -new -key ./test/private.key -out ./test/private.csr
+
+genrsa -aes256 -out ./test/rootCA.key 2048
+
+req -x509 -new -nodes -key ./test/rootCA.key -days 3650 -config ./openssl.cnf -out ./test/rootCA.pem
+
+x509 -req -in ./test/private.csr -CA ./test/rootCA.pem -CAkey ./test/rootCA.key -CAcreateserial -out ./test/private.crt -days 3650
+
+pkcs12 -export -in ./test/private.crt -inkey ./test/private.key -out ./test/.keystore -name tomcat
+
+
+
+
+
+genrsa -aes256 -out ./test2/private.key 2048
+
+req -new -key ./test2/private.key -out ./test2/rootca.csr -config ./openssl.cnf
+
+x509 -req -days 3650 -extensions v3_ca -set_serial 1 -in ./test2/rootca.csr -signkey ./test2/private.key -out ./test2/rootca.crt
+
+genrsa -aes256 -out ./test2/private.key 2048
+
+openssl req -new -key ./test2/private.key -out ./test2/localhost.csr -config ./openssl.cnf
+
+
+
+
+genrsa -aes256 -out rootCA.key 2048
+
+req -x509 -new -nodes -key rootCA.key -days 3650 -out rootCA.pem -config ../openssl.cnf
+
+genrsa -out abrand.key 2048
+
+req  -new -key abrand.key -out abrand.csr -config ../openssl.cnf
+
+x509 -req -in abrand.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out abrand.crt -days 3650
+
+pkcs12 -export -in abrand.crt -inkey abrand.key -out .keystore -name tomcat
+
+
+genrsa -out ./test/private.key 2048
+rsa -in ./test/private.key -pubout -out ./test/public.key
+req -new -key ./test/private.key -config ./openssl.cnf -out ./test/private.csr
+genrsa -aes256 -out ./test/rootCA.key 2048
+req -x509 -new -nodes -key ./test/rootCA.key -config ./openssl.cnf -days 365 -out ./test/rootCA.pem
+x509 -req -in ./test/private.csr -CA ./test/rootCA.pem -CAkey ./test/rootCA.key -CAcreateserial -out ./test/private.crt -days 3650
+
+
+req -newkey rsa:2048 -nodes -keyout -config ./openssl.cnf ./test2/key.pem -x509 -days 365 -out ./test2/certificate.pem
+
+req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt
+
+
+SET OPENSSL_HOME=C:\openssl-0.9.8k_X64
+SET OPENSSL_CONF=%OPENSSL_HOME%\openssl.cnf
+SET PATH=%PATH%;%OPENSSL_HOME%\bin
+openssl
+
+openssl genrsa -aes256 -out private.key 2048
+
+openssl rsa -in private.key -pubout -out public.key
+
+openssl req -new -key private.key -out private.csr
+
+
+
+
+genrsa -out ./test/private.key 2048
+
+rsa -in ./test/private.key -pubout -out ./test/public.key
+
+req -new -key ./test/private.key -config ./openssl.cnf -out ./test/private.csr
+
+req -x509 -days 365 -key ./test/private.key -in ./test/private.csr -out ./test/private.crt -days 365
+
+pkcs12 -export -in ./test/private.crt -inkey ./test/private.key -out ./test/.keystore -name tomcat
