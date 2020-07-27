@@ -13,7 +13,7 @@
 	<meta name="apple-mobile-web-app-title" content="pwa-test">
 	<link rel="apple-touch-icon" href="/images/icons/icon-152x152.png">
 	<link rel="apple-touch-icon-precomposed" href="/images/icons/icon-72x72.png">
-	
+
 	<style>
 		.add-button {
 			position: absolute;
@@ -27,38 +27,37 @@
 <body>
 	<h1>pwa</h1>
 	<span><b class="page-status">online</b></span> <br/>
-	<!-- <a href="intent://addshortcut?url=https://antika77.github.io&amp;icon=https://antika77.github.io/images/icon-512x512.png&amp;title=PWA-TEST&amp;version=7#Intent;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;end"
+	<a href="intent://addshortcut?url=https://antika77.github.io&amp;icon=https://antika77.github.io/images/icon-512x512.png&amp;title=PWA-TEST&amp;version=7#Intent;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;end"
 		onclick="nclk(this,'fot.shorcut','','',event);">Android</a>
 	<script src="/js/pwa.js"></script>
-	<script src="/js/status.js"></script> -->
-	
-	<script src="/js/sw.js"></script>
-	
+	<script src="/js/status.js"></script>
+
+	<!-- <script src="/js/sw.js"></script> -->
+
 	<script>
 		//메인 html 파일(index.html) 안의 body 태그 끝의 script 태그 안에 아래 코드를 붙여 넣으세요.
 		//서비스 워커 등록
-		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker
-					.register('/js/sw.js')
+		/*if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/js/sw.js')
 					.then(function() {
 				console.log("Service Worker Registered");
 			});
 		}
-		
+
 		var savedPrompt = null;
-		
+
 		window.addEventListener('beforeinstallprompt', beforeInstallPrompt);
-		
+
 		function beforeInstallPrompt(event) {
 			event.preventDefault();
 			savedPrompt = event;
 			//이곳에 여러분의 어플리케이션을 홈 스크린에 추가하기 위한 UI를 보여주는 로직을 구현하세요 (아마도 버튼이겠죠)
 		}
-		
+
 		//유저가 여러분의 UI에서 버튼을 클릭했을 때 이 메서드를 호출하세요
 		function userClickedAddToHome() {
 			savedPrompt.prompt();
-			
+
 			savedPrompt.userChoice.then(function(choiceResult) {
 				if (choiceResult.outcome === 'accepted') {
 					//유저가 홈 스크린에 어플리케이션 추가에 동의
@@ -67,16 +66,16 @@
 				}
 				savedPrompt = null;
 			});
-		}
-		
-		/*
+		}*/
+
+
 		window.addEventListener("beforeinstallprompt", (ev) => {
 			if (isStandalone()) {
 				// PWA already installed.
 				event.preventDefault();
 				return false;
 			} else {
-				aler("PWA not installed.");
+				alert("PWA not installed.");
 				// PWA not installed.
 			}
 		});
@@ -84,15 +83,15 @@
 		function isStandalone() {
 			// Check if device supports service workers
 			if (!('serviceWorker' in window.navigator)) return false;
-			
+
 			// Check for Android
 			if (window.matchMedia('(display-mode: standalone)').matches) return true;
-			
+
 			// Check for iOS
 			if (window.navigator["standalone"] == true) return true;
-			
+
 			return false;
-		}*/
+		}
 	</script>
 </body>
 
