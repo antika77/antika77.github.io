@@ -1,6 +1,6 @@
 //sw.js 파일 안
 //이 곳에서 polyfill을 구할 수 있습니다 : https://github.com/dominiccooney/cache-polyfill/blob/master/index.js
-importScripts('/js/serviceworker-cache-polyfill.js');
+
 
 //'install' 이벤트를 리스닝하며, 사이트 자산(assets)을 캐싱
 self.addEventListener('install', function(e) {
