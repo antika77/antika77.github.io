@@ -3,7 +3,7 @@ self.addEventListener('install', function(event) {
 	
 	event.waitUntil (
 		caches.open('static').then(function(cache) {
-			cache.addAll(['/test/', '/test/index.html', '/test/manifest.json']);
+			cache.addAll(['/', '/index.html', '/manifest.json']);
 		})
 	);
 });
