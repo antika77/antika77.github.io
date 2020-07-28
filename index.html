@@ -37,7 +37,7 @@
 	<script>
 		//메인 html 파일(index.html) 안의 body 태그 끝의 script 태그 안에 아래 코드를 붙여 넣으세요.
 		//서비스 워커 등록
-		/*if ('serviceWorker' in navigator) {
+		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('/js/sw.js')
 					.then(function() {
 				console.log("Service Worker Registered");
@@ -66,10 +66,10 @@
 				}
 				savedPrompt = null;
 			});
-		}*/
+		}
 
 
-		window.addEventListener("beforeinstallprompt", (ev) => {
+		/*window.addEventListener("beforeinstallprompt", (ev) => {
 			if (isStandalone()) {
 				// PWA already installed.
 				event.preventDefault();
@@ -91,7 +91,7 @@
 			if (window.navigator["standalone"] == true) return true;
 
 			return false;
-		}
+		}*/
 	</script>
 </body>
 
