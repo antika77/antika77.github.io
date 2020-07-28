@@ -8,6 +8,15 @@ self.addEventListener('install', function(e) {
 			return cache.addAll([
 				'/',
 				'/index.html',
+				'/js/index.js',
+				'/images/icons/icon-72x72.png',
+				'/images/icons/icon-96x96.png',
+				'/images/icons/icon-128x128.png',
+				'/images/icons/icon-144x144.png',
+				'/images/icons/icon-152x152.png',
+				'/images/icons/icon-196x196.png',
+				'/images/icons/icon-384x384.png',
+				'/images/icons/icon-512x512.png'
 				// 필요한 자산(assets)들을 여기에 넣으세요
 			]);
 		})
