@@ -1,11 +1,10 @@
-//sw.js 파일 안
-//이 곳에서 polyfill을 구할 수 있습니다 : https://github.com/dominiccooney/cache-polyfill/blob/master/index.js
-
+//sw.js 파일
+const CACHE_NAME = 'antika77.github.io';
 
 //'install' 이벤트를 리스닝하며, 사이트 자산(assets)을 캐싱
 self.addEventListener('install', function(e) {
 	e.waitUntil(
-		caches.open('antika77.github.io').then(function(cache) {
+		caches.open(CACHE_NAME).then(function(cache) {
 			return cache.addAll([
 				'/',
 				'/index.html',
@@ -27,7 +26,7 @@ self.addEventListener('fetch', function(event) {
 /*
 self.addEventListener('install', function(event) {
 	console.log('[Service Worker] Installing Service Worker ...', event);
-	
+
 	event.waitUntil (
 		caches.open('static').then(function(cache) {
 			cache.addAll(['/', '/index.html', '/manifest.json']);

@@ -1,21 +1,21 @@
 {
-  "name": "antika77.github.io",
-  "short_name": "pwa.test",
-  "start_url": "/index.html",
-  "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#3740ff",
-  "theme_color": "#fff",
-  "icons": [
-    {
-      "src": "/images/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/images/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+    "name": "antika77.github.io",
+    "short_name": "pwa.test",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#3740ff",
+    "theme_color": "#fff",
+    "icons": [
+        {
+            "src": "/images/icons/icon-196x196.png",
+            "sizes": "196x196",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icons/icon-512x512.png",
+            "sizes": "504x512",
+            "type": "image/png"
+        }
+    ]
 }
